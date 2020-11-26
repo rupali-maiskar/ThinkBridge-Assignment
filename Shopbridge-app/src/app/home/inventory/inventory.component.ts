@@ -30,7 +30,7 @@ export class InventoryComponent implements OnInit {
       'ComponentId':new FormControl(0),
       'Name': new FormControl('', Validators.required),
       'Description': new FormControl(''),
-      'Price': new FormControl(0,Validators.compose([Validators.required, Validators.pattern('^[0-9]{1-5}')])),
+      'Price': new FormControl(0),
       'Image': new FormControl(),
       'CreatedBy': new FormControl(1),
       'CreatedOn': new FormControl('26-11-2020'),
