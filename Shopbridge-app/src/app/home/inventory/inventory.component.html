@@ -1,0 +1,43 @@
+<br>
+<div class="col-md-12 example-wrapper">
+    <button kendoButton *ngIf="!opened" (click)="open()" style="font-size: larger">Add Item</button>
+    <p *ngIf="dataSaved">Data has been saved</p>
+    <kendo-window title="Add Item" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+ 
+    <form class="k-form" novalidate [formGroup]="editForm">
+        <div class="form-group">
+            <label for="Name" class="control-label" style="font-size: larger">Name</label>
+            <input type="text" class="k-textbox" formControlName="Name" />
+      
+            <div
+                class="k-tooltip k-tooltip-validation"
+                [style.visibility]=
+                    "editForm.controls.Name.valid || editForm.controls.Name.pristine ? 'hidden':'visible'">
+                Item Name is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Description" class="control-label" style="font-size: larger">Description</label>
+            <input type="text" class="k-textbox" formControlName="Description" />
+        </div>
+
+        <div class="form-group">
+            <label for="Price" class="control-label" style="font-size: larger">Price</label>
+            <input type="number" class="k-textbox" formControlName="Price" />
+        </div>
+
+        <div class="text-right">
+            <button type="button" class="k-button" (click)="close()">Cancel</button>
+            <button type="button" class="k-button k-primary" (click)="onSave($event)">Save</button>
+        </div>
+    </form>
+
+    </kendo-window>
+  </div>
+  <br>
+<div class="card-list">
+    
+    <div *ngFor="let card of data">
+        <scrollview-card [card]="card"></scrollview-card>
+    </div>
+</div>
